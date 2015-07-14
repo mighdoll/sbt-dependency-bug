@@ -8,8 +8,8 @@ import sbt.complete.DefaultParsers._
 lazy val root = (project in file(".")).
   settings(
     scalaVersion := "2.11.6",
-    updateOptions := updateOptions.value.withCachedResolution(true),  // this breaks it
-    dependencyOverrides += cassandraDriver,   // this fixes it!
+    updateOptions := updateOptions.value.withCachedResolution(true),  // pre-sbt 0.13.9-RC2, this breaks it.
+//    dependencyOverrides += cassandraDriver,   // pre sbt 0.13.9.-RC2, this fixes it!
     libraryDependencies ++= Seq(
       sparkCore,
       cassandraDriver,
